@@ -1,0 +1,399 @@
+{
+    "title": "Swagger Petstore",
+    "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    "docsUrl": "http://swagger.io",
+    "url": "https://petstore.swagger.io/v2",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://petstore.swagger.io/v2",
+                    "http://petstore.swagger.io/v2",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_api_key": {
+                "label": "api_key (api_key)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "addPet": {
+            "main": "./lib/actions/addPet.js",
+            "title": "Add a new pet to the store",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/addPet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updatePet": {
+            "main": "./lib/actions/updatePet.js",
+            "title": "Update an existing pet",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/xml": "application/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updatePet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "findPetsByStatus": {
+            "main": "./lib/actions/findPetsByStatus.js",
+            "title": "Finds Pets by status",
+            "description": "Multiple status values can be provided with comma separated strings",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/findPetsByStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "findPetsByTags": {
+            "main": "./lib/actions/findPetsByTags.js",
+            "title": "Finds Pets by tags",
+            "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/findPetsByTags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getPetById": {
+            "main": "./lib/actions/getPetById.js",
+            "title": "Find pet by ID",
+            "description": "Returns a single pet",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPetById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updatePetWithForm": {
+            "main": "./lib/actions/updatePetWithForm.js",
+            "title": "Updates a pet in the store with form data",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updatePetWithForm.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deletePet": {
+            "main": "./lib/actions/deletePet.js",
+            "title": "Deletes a pet",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deletePet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "uploadFile": {
+            "main": "./lib/actions/uploadFile.js",
+            "title": "uploads an image",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/uploadFile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getInventory": {
+            "main": "./lib/actions/getInventory.js",
+            "title": "Returns pet inventories by status",
+            "description": "Returns a map of status codes to quantities",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getInventory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "placeOrder": {
+            "main": "./lib/actions/placeOrder.js",
+            "title": "Place an order for a pet",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/placeOrder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getOrderById": {
+            "main": "./lib/actions/getOrderById.js",
+            "title": "Find purchase order by ID",
+            "description": "For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getOrderById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteOrder": {
+            "main": "./lib/actions/deleteOrder.js",
+            "title": "Delete purchase order by ID",
+            "description": "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteOrder.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createUser": {
+            "main": "./lib/actions/createUser.js",
+            "title": "Create user",
+            "description": "This can only be done by the logged in user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createUsersWithArrayInput": {
+            "main": "./lib/actions/createUsersWithArrayInput.js",
+            "title": "Creates list of users with given input array",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createUsersWithArrayInput.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "createUsersWithListInput": {
+            "main": "./lib/actions/createUsersWithListInput.js",
+            "title": "Creates list of users with given input array",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createUsersWithListInput.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "loginUser": {
+            "main": "./lib/actions/loginUser.js",
+            "title": "Logs user into the system",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/loginUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "logoutUser": {
+            "main": "./lib/actions/logoutUser.js",
+            "title": "Logs out current logged in user session",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/logoutUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getUserByName": {
+            "main": "./lib/actions/getUserByName.js",
+            "title": "Get user by user name",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getUserByName.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateUser": {
+            "main": "./lib/actions/updateUser.js",
+            "title": "Updated user",
+            "description": "This can only be done by the logged in user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteUser": {
+            "main": "./lib/actions/deleteUser.js",
+            "title": "Delete user",
+            "description": "This can only be done by the logged in user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

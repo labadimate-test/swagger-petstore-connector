@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "api_key": {
+            "required": false,
+            "type": "string"
+        },
+        "petId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        }
+    }
+}
