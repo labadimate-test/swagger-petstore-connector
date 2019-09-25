@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the Swagger Petstore API (version 1.0.2).
 
 Generated from: https://petstore.swagger.io/v2<br/>
-Generated at: 2019-09-24T11:27:33+02:00
+Generated at: 2019-09-25T16:52:35+02:00
 
 ## API Description
 
