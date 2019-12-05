@@ -2,10 +2,10 @@
 
 ## Description
 
-A generated **flow**ground connector for the Swagger Petstore API (version 1.0.2).
+A generated **flow**ground connector for the Swagger Petstore API (version 1.0.3).
 
 Generated from: https://petstore.swagger.io/v2<br/>
-Generated at: 2019-09-26T11:02:16+02:00
+Generated at: 2019-12-05T23:45:53+01:00
 
 ## API Description
 
@@ -14,39 +14,15 @@ This is a sample server Petstore server.  You can find out more about Swagger at
 ## Authorization
 
 Supported authorization schemes:
-- OAuth2
 - API Key
 
+- OAuth2
 
 For OAuth 2.0 you need to specify OAuth Client credentials as environment variables in the connector repository:
 * `OAUTH_CLIENT_ID` - your OAuth client id
 * `OAUTH_CLIENT_SECRET` - your OAuth client secret
 
 ## Actions
-
-### Add a new pet to the store
-
-*Tags:* `pet`
-
-### Update an existing pet
-
-*Tags:* `pet`
-
-### Finds Pets by status
-> Multiple status values can be provided with comma separated strings<br/>
-
-*Tags:* `pet`
-
-#### Input Parameters
-* `status` - _required_ - Status values that need to be considered for filter<br/>
-
-### Finds Pets by tags
-> Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.<br/>
-
-*Tags:* `pet`
-
-#### Input Parameters
-* `tags` - _required_ - Tags to filter by<br/>
 
 ### Find pet by ID
 > Returns a single pet<br/>
@@ -78,12 +54,32 @@ For OAuth 2.0 you need to specify OAuth Client credentials as environment variab
 #### Input Parameters
 * `petId` - _required_ - ID of pet to update<br/>
 
+### Add a new pet to the store
+
+*Tags:* `pet`
+
+### Update an existing pet
+
+*Tags:* `pet`
+
+### Finds Pets by status
+> Multiple status values can be provided with comma separated strings<br/>
+
+*Tags:* `pet`
+
+#### Input Parameters
+* `status` - _required_ - Status values that need to be considered for filter<br/>
+
+### Finds Pets by tags
+> Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.<br/>
+
+*Tags:* `pet`
+
+#### Input Parameters
+* `tags` - _required_ - Tags to filter by<br/>
+
 ### Returns pet inventories by status
 > Returns a map of status codes to quantities<br/>
-
-*Tags:* `store`
-
-### Place an order for a pet
 
 *Tags:* `store`
 
@@ -103,6 +99,10 @@ For OAuth 2.0 you need to specify OAuth Client credentials as environment variab
 #### Input Parameters
 * `orderId` - _required_ - ID of the order that needs to be deleted<br/>
 
+### Place an order for a pet
+
+*Tags:* `store`
+
 ### Create user
 > This can only be done by the logged in user.<br/>
 
@@ -113,18 +113,6 @@ For OAuth 2.0 you need to specify OAuth Client credentials as environment variab
 *Tags:* `user`
 
 ### Creates list of users with given input array
-
-*Tags:* `user`
-
-### Logs user into the system
-
-*Tags:* `user`
-
-#### Input Parameters
-* `username` - _required_ - The user name for login<br/>
-* `password` - _required_ - The password for login in clear text<br/>
-
-### Logs out current logged in user session
 
 *Tags:* `user`
 
@@ -150,6 +138,18 @@ For OAuth 2.0 you need to specify OAuth Client credentials as environment variab
 
 #### Input Parameters
 * `username` - _required_ - The name that needs to be deleted<br/>
+
+### Logs user into the system
+
+*Tags:* `user`
+
+#### Input Parameters
+* `username` - _required_ - The user name for login<br/>
+* `password` - _required_ - The password for login in clear text<br/>
+
+### Logs out current logged in user session
+
+*Tags:* `user`
 
 ## License
 

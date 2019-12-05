@@ -34,20 +34,24 @@
                 "photoUrls": {
                     "type": "array",
                     "xml": {
-                        "name": "photoUrl",
                         "wrapped": true
                     },
                     "items": {
-                        "type": "string"
+                        "type": "string",
+                        "xml": {
+                            "name": "photoUrl"
+                        }
                     }
                 },
                 "tags": {
                     "type": "array",
                     "xml": {
-                        "name": "tag",
                         "wrapped": true
                     },
                     "items": {
+                        "xml": {
+                            "name": "tag"
+                        },
                         "type": "object",
                         "properties": {
                             "id": {
@@ -57,9 +61,6 @@
                             "name": {
                                 "type": "string"
                             }
-                        },
-                        "xml": {
-                            "name": "Tag"
                         }
                     }
                 },

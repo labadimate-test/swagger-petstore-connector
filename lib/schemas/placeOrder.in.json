@@ -30,8 +30,7 @@
                     ]
                 },
                 "complete": {
-                    "type": "boolean",
-                    "default": false
+                    "type": "boolean"
                 }
             },
             "xml": {
